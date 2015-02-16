@@ -292,6 +292,97 @@ var getCounter = function(){
 
 //-------------------------------------------------------------------------------------------------------------
 
+//function that takes a string with parens, brackets, braces ({[< checks to see if they close (string{stringy}) -- true
+// ([string]} -- false
+
+var checker = function(string) {
+    var newString = string.split("");
+    var counter = 0;
+    for (var i = 0; i < string.length; i++) {
+        if (string[i] === "(" || "{" || "[") {   //first attempt (failed)
+            counter += 1;
+        }
+    }
+        if (counter % 2 === 0) {
+            return true;
+        } else {
+            return false;
+        }
+}
+
+//------------------------------------------------------------------------------------------------------
+
+var checker = function(string) {
+    var charTracker = {             //created object to keep count essentially.
+        "(": 0,
+        "{": 0,
+        "[": 0
+        "<": 0
+    }
+    for(var i = 0; i < string.length; i++){
+        switch (string[i]){                      //switch case is quick way to run many if statements 
+            case "(":
+            case "{":
+            case "[":
+            case "<":
+                charTracker[string[i]] ++;
+                break;
+            case ")":
+                charTracker["("] --;
+                break;
+            case "}":
+                charTracker["{"] --;
+                break;
+            case "]":
+                charTracker["["] --;
+                break;
+            case ">":
+                charTracker["<"] --;
+                break;
+         }
+    }
+        for (var key in charTracker) {
+            if (charTracker [key] !== 0) {
+                return false;
+            }
+        }
+                return true;
+
+}
+
+//------------------------------------------------------- another solution
+
+function openClose(string){
+    var obj = {
+        "()": 0,
+        "<>": 0,
+        "[]": 0,
+        "{}": 0
+    };
+    var innerList = [];
+    for( var i = 0; i < string.length; i++ ) {
+        for(var item in obj){
+            if(item.indexOf(string[i]) === 0){
+                innerList.push(string[i]);
+                obj[item] += 1;
+            } else if (item.indexOf(string[i]) === 1){
+                obj[item] -= 1;
+                if(obj[item] < 0){
+                    return false;
+                }
+                if(item.indexOf(innerList[innerList.length -1 ]) === -1){
+                    return false
+                } else {
+                    innerList.pop();
+                }
+            }
+        }
+    }
+    if(innerList.length) return false;
+    return true;
+}
+
+//----------------------------------------------------------------------------------------------
 
 
 
