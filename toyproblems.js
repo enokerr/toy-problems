@@ -385,6 +385,22 @@ function openClose(string){
 //----------------------------------------------------------------------------------------------
 
 
+Sort the values in the following array in ascending order: [32, 1, 44, 9] 
+
+var random_array = [32, 1, 44, 9];
+
+var sorter = function(array) {
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] <)
+    }
+}
+
+var random_array = [32, 1, 44, 9];
+
+random_array.sort(function(a, b) {
+  return a - b;
+});
+print(random.array);
 
 
 
