@@ -402,6 +402,28 @@ random_array.sort(function(a, b) {
 });
 print(random.array);
 
+//---------------------------------------------
+//conditional (ternary) operator
+
+var rethink = true ? "Daniel": "Scott";
+
+//same as 
+
+var rethink = 14 > 13 ? "Daniel": "Scott";
+
+//same as 
+
+var rethink = {
+    if (14 > 13) {
+        rethink = "Daniel";
+    }
+    else {
+        rethink = "Scott";
+    }
+}
+
+//----------------------------------
+
 
 
 
