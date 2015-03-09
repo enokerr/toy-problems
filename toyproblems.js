@@ -423,8 +423,27 @@ var rethink = {
 }
 
 //----------------------------------
+//map The map() method creates a new array with the results of calling a provided function on every element in this array.
 
+var numbers = [1, 4, 9];
+var roots = numbers.map(Math.sqrt);
+// roots is now [1, 2, 3], numbers is still [1, 4, 9]
 
+var numbers = [1, 4, 9];
+var doubles = numbers.map(function(num) {
+  return num * 2;
+});
+// doubles is now [2, 8, 18]. numbers is still [1, 4, 9]
+
+var str = '12345';
+[].map.call(str, function(x) {
+  return x;
+}).reverse().join(''); 
+
+// Output: '54321'
+// Bonus: use '===' to test if original string was a palindrome
+
+//-------------------------------------------------------------------------------------------
 
 
 
