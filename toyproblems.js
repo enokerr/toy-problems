@@ -445,9 +445,44 @@ var str = '12345';
 
 //-------------------------------------------------------------------------------------------
 
+// We have a triabgle made of blocks.  The topmost row has 1 block, the next row has 2 blocks, the next row has 3 blocks, and so on.  Compute the total number of blocks in such a triablge with the given number of rows.
 
+// triangle(2) ---> 3
+//  *
+// * *
 
+// triangle(3) ---> 6
+//   *
+//  * *
+// * * *
 
+// triangle(4) --->
+//    *
+//   * *
+//  * * *
+// * * * *
+
+function triangleCounter(n){
+  if (n === 1) return 1;
+  else return n + triangleCounter(n - 1);
+}
+
+function triangleCreator(n, x){
+  if(!x) x = 1;
+  var string = '';
+  if(x === 1) string += '\n';
+  for(var i = 0; i < (n - x); i++){
+    string += ' ';
+  }
+  for(var i = 0; i < x; i++){
+    string += '* ';
+  }
+  string += '\n'
+  if(x !== n) return string + triangleCreator(n, x + 1);
+  else return string;
+}
+
+//-----------------------------------------------------------
 
 
 
