@@ -484,10 +484,47 @@ function triangleCreator(n, x){
 
 //-----------------------------------------------------------
 
+// write a function that console.logs numbers from 1 to 100. 
+// For multiples of 3 print 'fizz', for multiples of 5 print 'buzz'.
+// For multiples of both 3 and 5 print 'fizz buzz'.
 
+var fizzBuzz = function() {
+    
+    for (var i = 1; i < 101; i++) {        
+        if (i % 15 === 0) {             //important that this test is ran first. 
+            console.log('fizz buzz');
+        }
+        else if (i % 5 === 0){
+            console.log('buzz');
+        }
+        else if(i % 3 === 0) {
+            console.log('fizz');
+        }
+        else {
+            console.log(i);
+        }
+    }
+}
 
+//------------------------------------------------------------------
 
+function fizzBuzz() {
+    var string = 1;
+for (var i = 2; i < 100; i++) {       
+    if (i % 15 = 0) {
+        str += ', fizz buzz';
+    } else if (i % 3 === 0) {
+        str += ', fizz';
+    } else if (i % 5 === 0) {
+        str += ', buzz';
+    } else {
+        str += ', + i';
+    }
+}
+console.log(string);
+}
 
+//-----------------------------------------------------------------------
 
 
 
