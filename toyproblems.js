@@ -526,6 +526,30 @@ console.log(string);
 
 //-----------------------------------------------------------------------
 
+//Have the function LetterChanges(str) take the str parameter being passed and modify it using the following algorithm. 
+//Replace every letter in the string with the letter following it in the alphabet (ie. c becomes d, z becomes a). 
+//Then capitalize every vowel in this new string (a, e, i, o, u) and finally return this modified string. 
 
+function LetterChanges(str) { 
+  str = str.split("");
+  var regex = /[a-z]/i;
+  var vowels = /[aeiou]/i;
+  var changes = [];
+
+  for (var i = 0; i < str.length; i++) {
+    if (regex.test(str[i])) {
+        var ltr = String.fromCharCode(str[i].charCodeAt() + 1);
+        changes.push(ltr.toLowerCase());
+      if (vowels.test(changes[i])) {
+        changes[i] = changes[i].toUpperCase();
+      }
+    } else {
+        changes.push(str[i]);
+    }
+  }      
+  return str = changes.join("");        
+}
+
+//-----------------------------------------------------------------------------
 
 
