@@ -552,4 +552,94 @@ function LetterChanges(str) {
 
 //-----------------------------------------------------------------------------
 
+//have the function SimpleAdding(num) add up all the numbers from 1 to num
+
+function SimpleAdding(num) { 
+var newNumber = 0;
+  for (var i = 1; i <= num; i++) {
+   newNumber += i;
+  }
+    num = newNumber;
+
+    
+  return num; 
+         
+}
+
+//--------------------------------------------------------------------------------
+
+//have the function LetterCapitalize(str) take the str parameter being passed and capitalize the first letter of each word. 
+//Words will be separated by only one space. 
+
+function LetterCapitalize(str) { 
+    var arr = [];
+    var sep = str.split(" ");
+    for (var i = 0; i < sep.length; i++) {
+     arr.push(sep[i][0].toUpperCase()+sep[i].slice(1));
+    }
+
+  return arr.join(" "); 
+         
+}
+
+//---------------------------------------------------------------------------------
+
+// have the function SimpleSymbols(str) take the str parameter being passed and determine if it is an acceptable sequence by either returning the string true or false. 
+// The str parameter will be composed of + and = symbols with several letters between them (ie. ++d+===+c++==a) and for the string to be true each letter must be surrounded by a + symbol. 
+// So the string to the left would be false. The string will not be empty and will have at least one letter. 
+
+function SimpleSymbols(str) { 
+    var something = str.split("");
+    var alpha="abcdefghijklmnopqrstuwxyz";
+  for (var i = 0; i < something.length; i++) {
+    if ((alpha.indexOf(something[i]) !== -1) && (something[i - 1] !== "+" || something[i + 1] !== "+")) {
+        return false;
+    } 
+} 
+  return true; 
+         
+}
+
+//----------------------------------------------------------------------------------------------
+
+//write a function that takes two parameters (num1, num2) and outputs true if num2 > num1, outputs fale
+//if num1 > num2, and outputs -1 if the two numbers are equal
+
+function CheckNums(num1,num2) { 
+    if (num2 > num1) {
+      return true;
+    } if (num1 > num2) {
+        return false;
+    } else {
+      return -1;
+    }
+  // code goes here  
+  return num1 + num2; 
+         
+}
+
+//---------------------------------------------------------------------------------------------------
+
+// have the function TimeConvert(num) take the num parameter being passed and return the number of hours and minutes the parameter converts to 
+// (ie. if num = 63 then the output should be 1:3). Separate the number of hours and minutes with a colon. 
+
+   function TimeConvert(num) { 
+      h=Math.floor(num/60)
+      m=num%60  
+      return (h + ":" + m).toString();   
+    }
+
+//-------------------------------------------------------------------------------------------------------
+
+// have the function AlphabetSoup(str) take the str string parameter being passed and return the string with the letters in alphabetical order (ie. hello becomes ehllo). 
+// Assume numbers and punctuation symbols will not be included in the string. 
+
+function AlphabetSoup(str) { 
+    var sorted = str.split("");
+    return sorted.sort().join("");
+         
+}
+
+//-----------------------------------------------------------------------------------------------------------
+
 
