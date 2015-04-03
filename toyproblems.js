@@ -385,7 +385,7 @@ function openClose(string){
 //----------------------------------------------------------------------------------------------
 
 
-Sort the values in the following array in ascending order: [32, 1, 44, 9] 
+// Sort the values in the following array in ascending order: [32, 1, 44, 9] 
 
 var random_array = [32, 1, 44, 9];
 
@@ -649,7 +649,7 @@ var ABCheck = function(str) {
     str.toLowerCase();
     str.split("");
 
-   for (var i = 0; i < str.length; i++) {
+   for (var i = 0; i < str.length - 4; i++) {
        if (str[i] === "a" && str[i + 4] === "b") {
         return true
        } else {
@@ -657,4 +657,22 @@ var ABCheck = function(str) {
        }
    }
 };
+
+//----------------------------------------------------------------------------------------------------------------
+
+// have the function PrimeTime(num) take the num parameter being passed and return the string true if the parameter is a prime number, otherwise return the string false. 
+// The range will be between 1 and 2^16. 
+
+var primeTime = function(num) {
+    if (num === 2) {return true} //start with two, which is prime
+
+    var i = 2; //counter variable
+    for(i; i < num; i++) {    //takes i at 2, and loops through iterating by one until it gets to the num argument
+        if (num % i === 0) {  //if num % any number between 2 and itself has a remainder of 0, then the number isn't prime.. return false
+            return false;
+        }
+    }
+    return true;  //if the loop goes through and there is never a number with a remainder of 0, then it is prime.. return true.!
+}
+
 
