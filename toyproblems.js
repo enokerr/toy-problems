@@ -675,4 +675,89 @@ var primeTime = function(num) {
     return true;  //if the loop goes through and there is never a number with a remainder of 0, then it is prime.. return true.!
 }
 
+//----------------------------------------------------------------------------------------------------------------------
+
+// have the function ExOh(str) take the str parameter being passed and return the string true if there is an equal number of x's and o's, 
+// otherwise return the string false. Only these two letters will be entered in the string, no punctuation or numbers. 
+// For example: if str is "xooxxxxooxo" then the output should return false because there are 6 x's and 5 o's. 
+
+var ExOh = function(str) {
+    var xCounter = 0;
+    var oCounter = 0;
+    str.split("");
+
+for (var i = 0; i < str.length; i++) {
+    if (str[i] === "x") {
+        xCounter++;
+    } else {
+        oCounter++;
+    }
+}
+
+if (xCounter === oCounter) {
+        return true
+    } else {
+        return false
+    }
+}
+
+//-----------------------------------------------------------------------------------------------------------------------------
+
+// have the function FirstFactorial(num) take the num parameter being passed and return the factorial of it (ie. if num = 4, return (4 * 3 * 2 * 1)).
+//  For the test cases, the range will be between 1 and 18.
+
+var FirstFactorial = function(num) {
+    var val = 1;                       //defines val variable
+    for(i = 1; i <= num; i++) {    //loops through num parameter/argument
+        val = val * i;             //set val = to itself x num. (i.e 4x1, 4x2, 8x3)
+    }
+    return val;
+} 
+
+//---------------------------------------------------------------------------------------------------------------------------------
+
+ // have the function VowelCount(str) take the str string parameter being passed and return the number of vowels the string contains (ie. "All cows eat grass" would return 5). 
+ // Do not count y as a vowel for this challenge. 
+
+ var VowelCount = function(str) {   //works, but hideous!
+    str.split("");
+    var count = 0;
+    
+    for (var i = 0; i < str.length; i++) {
+        if (str.charAt(i) === "a") {
+            count += 1;
+        } else if (str.charAt(i) === "e") {
+            count += 1;
+    } else if (str.charAt(i) === "i") {
+            count += 1;
+    } else if (str.charAt(i) === "o") {
+            count += 1;
+    } else if (str.charAt(i) === "u") {
+            count += 1;
+    }
+    
+}
+return count;
+}
+
+//----------------------------------------------
+
+  function VowelCount(str) { 
+
+      var vo= str.replace(/[^aeiou]/g,"")   //regular expression here much more efficient
+      return vo.length
+  }
+
+//---------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
 
