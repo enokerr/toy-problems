@@ -750,12 +750,68 @@ return count;
 
 //---------------------------------------------------------
 
+// have the function WordCount(str) take the str string parameter being passed and return the number of words the string contains 
+// (ie. "Never eat shredded wheat" would return 4). Words will be separated by single spaces. 
 
+var WordCount = function(str) {
+    str = str.split(" ");
+    var counter = 0;
 
+   return str.length;
 
+}
 
+//-------------------------------------------------------------------------------------------------
 
+// have the function Palindrome(str) take the str parameter being passed and return the string true if the parameter is a palindrome, (the string is the same forward as it is backward) otherwise return the string false. 
+// For example: "racecar" is also "racecar" backwards. Punctuation and numbers will not be part of the string. 
 
+var Palindrome = function(str) {
+    var strTwo = str.split("").reverse().join("");
+ 
+    if (str === strTwo) {
+        return true;
+    } else {
+        return false
+    }
+
+}
+
+//----------------------------------------------------------------------------------------------------
+
+// have the function RunLength(str) take the str parameter being passed and return a compressed version of the string using the Run-length encoding algorithm. 
+// This algorithm works by taking the occurrence of each repeating character and outputting that number along with a single character of the repeating sequence. 
+// For example: "wwwggopp" would return 3w2g1o2p. 
+
+function runLength(str) {
+
+    var strArr = str.split('');
+
+    var newArr = [];
+
+    for (var i = 0; i < strArr.length; i++) {
+        if (strArr[i - 1] === undefined) {
+            newArr.push(strArr[i]);
+        } else {
+            if (strArr[i - 1] === strArr[i]) {
+                newArr.push(strArr[i]);
+            } else {
+                newArr.push('-' + strArr[i]);
+            }
+        }
+    }
+
+    var groupedArr = newArr.join('').split('-');
+
+    var newStr = '';
+   
+    for (var x=0; x < groupedArr.length; x++) {
+        newStr += groupedArr[x].length + groupedArr[x][0];
+    }
+    return newStr;
+}
+
+//--------------------------------------------------------------------------------
 
 
 
