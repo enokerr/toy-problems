@@ -169,7 +169,7 @@ return string;
 //write a function that accepts a multi dimensional  array and returns a flattened version
 //flatten([1,2,[3,[4], 5, 6], 7]) // [1,2,3,4,5,6,7]
 
-var flatten() = function(arr) {
+var flatten = function(arr) {
 	var newString = arr.toString();
 	var newArr = [];
 	for(i = 0; i < newString.length; i++) {
@@ -783,9 +783,9 @@ var Palindrome = function(str) {
 // This algorithm works by taking the occurrence of each repeating character and outputting that number along with a single character of the repeating sequence. 
 // For example: "wwwggopp" would return 3w2g1o2p. 
 
-function runLength(str) {
+var RunLength = function(str) {
 
-    var strArr = str.split('');
+    var strArr = str.split(''); //creates new array strArr composed of str argument seperated at each character ('')
 
     var newArr = [];
 
@@ -805,13 +805,133 @@ function runLength(str) {
 
     var newStr = '';
    
-    for (var x=0; x < groupedArr.length; x++) {
+    for (var x = 0; x < groupedArr.length; x++) {
         newStr += groupedArr[x].length + groupedArr[x][0];
     }
     return newStr;
 }
 
 //--------------------------------------------------------------------------------
+
+// Have the function LongestWord(sen) take the sen parameter being passed and return the largest word in the string. 
+// If there are two or more words that are the same length, return the first word from the string with that length. 
+// Ignore punctuation and assume sen will not be empty.
+
+
+function LongestWord(sen) {
+
+var x = sen.replace(/\W/g," ").split(" ").filter(function(i) {return (i!=="");})
+
+return x.sort(function(a,b){ return b.length - a.length;})[0];
+
+}
+
+//---------------------------------------------------------------------------------------------------
+
+
+ // Using the JavaScript language, have the function ArithGeo(arr) take 
+ // the array of numbers stored in arr and return the string "Arithmetic" 
+ // if the sequence follows an arithmetic pattern or return "Geometric" if
+ // it follows a geometric pattern. If the sequence  doesn't follow either 
+ // pattern return -1. An arithmetic sequence is one where the difference 
+ // between each of the numbers is consistent, where as in a geometric 
+ // sequence, each term after the first is multiplied by some constant or
+ // common ratio. Arithmetic example: [2, 4, 6, 8] and Geometric example:
+ // [2, 6, 18, 54]. Negative numbers may be entered as parameters, 0 will
+ // not be entered, and no array will contain all the same elements.
+
+ var ArithGeo = function(arr) {
+    
+    var first = arr[0];   //set up indexed arrays to establish pattern.
+    var second = arr[1];
+    var third = arr[2];
+
+    if ((second - first) === (third - second)) {       //establishes whether or not the difference between 0-1 and 1-2 are the same.
+        return "Arithmetic";                            //if the differences are the same, the pattern is arithmetic
+    } else if ((second/first) === (third/second)) {     //establishes whether or not second/first === third/second.
+        return "Geometric";                             //if the difference is the same, then we can assume the pattern in geometric
+    } else {
+        return -1;
+    }
+}
+
+//Does't account for an array like [1,2,3,4,5,6,800]
+
+//------------------------------------------------------------------------------------------
+
+// have the function ArrayAdditionI(arr) take the array of numbers stored in arr and return the string true if any combination of numbers in the array can be added up to equal the largest number in the array, 
+// otherwise return the string false. For example: if arr contains [4, 6, 23, 10, 1, 3] the output should return true because 4 + 6 + 10 + 3 = 23. 
+// The array will not be empty, will not contain all the same elements, and may contain negative numbers. 
+
+var ArrayAddition = function(arr) {
+
+    var largest = Math.max.apply(Math, arr); //sets largest to biggest number in the array argument 
+    var index = arr.indexOf(largest);  //finds index of largest number in arr
+    arr.splice(index, 1);              //removes the largest number in the arrary, stored in largest variable
+
+    var sum = 0;  //new variable sum set equal to zero 
+
+    for (var i = 0; i < arr.length; i++) {  
+        
+        sum += arr[i];
+        
+        for (var j = 0; j < arr.length; j++) {
+            if (i != j) {
+                sum += arr[j];
+                    if (sum == largest) {
+                        return true;
+                    }
+            }
+        }
+
+        for (var k = 0; k < arr.length; k++) {
+            if (i != k) {
+                sum -= arr[k];
+                if (sum == largest) {
+                    return true;
+                }
+            }
+        }
+        sum = 0;
+    }
+    return false;
+}
+
+//----------------------------------------------------------------------
+
+// Have the function ThirdGreatest(strArr) take the array of strings stored in strArr and return the third largest word within in. 
+// So for example: if strArr is ["hello", "world", "before", "all"] your output should be world because "before" is 6 letters long, and "hello" and "world" are both 5, 
+// but the output should be world because it appeared as the last 5 letter word in the array. 
+// If strArr was ["hello", "world", "after", "all"] the output should be after because the first three words are all 5 letters long, so return the last one. 
+// The array will have at least three strings and each string will only contain letters. 
+
+var ThirdGreatest = function(strArr) {
+    
+    var newStr =  strArr.sort(function(a,b){return b.length - a.length;}); //sets newStr = strArr sorted from biggest word to smallest
+              
+        return newStr[2]; //returns third largest string in the array. This ends up working out even if there are multiple strings that are the same length
+
+}
+
+//-------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
