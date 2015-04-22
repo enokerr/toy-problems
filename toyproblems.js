@@ -76,7 +76,7 @@ function fib(num){
 }
 //---------------------------------------------------------------------------------------------------------
 
-//Find the only item that occurs an even number if times in an array. If there is more than one item that occurs an even number of time
+//Find the only item that occurs an even number of times in an array. If there is more than one item that occurs an even number of time
 //just return one of them. If there are no items that occur an even number of times, return null. 
 
 var onlyEven = function(arr) {
@@ -744,8 +744,8 @@ return count;
 
   function VowelCount(str) { 
 
-      var vo= str.replace(/[^aeiou]/g,"")   //regular expression here much more efficient
-      return vo.length
+      var vo= str.replace(/[^aeiou]/g,"")   //regular expression here much more efficient. Go through string and replaces all vowels with placeholder ""
+      return vo.length    //returns the number of "" placed in vo, each representing a vowel.
   }
 
 //---------------------------------------------------------
@@ -914,6 +914,46 @@ var ThirdGreatest = function(strArr) {
 }
 
 //-------------------------------------------------------------------------------
+
+// have the function SecondGreatLow(arr) take the array of numbers stored in arr and return the second lowest and second greatest numbers, 
+// respectively, separated by a space. For example: if arr contains [7, 7, 12, 98, 106] the output should be 12 98. 
+// The array will not be empty and will contain at least 2 numbers. It can get tricky if there's just two numbers!
+
+var SecondGreatLow = function(arr) {  //first attempt.. gets funky when passed only 2 numbers
+
+    var sortedArr = arr.sort(function sortNumber(a,b){
+    return a - b;})
+
+    if (arr.length === 2) {
+        return sortedArr[0] + " " + sortedArr[1];
+    } else {
+        return sortedArr[1] + " " + sortedArr[sortedArr.length - 2];
+    }
+}
+
+//---------------------------------------------------------------------------------
+
+    function SecondGreatLow(arr) { 
+         var uniq = [arr[0]]                //creates uniq var to very first value of arr array
+         
+         for (var i = 0; i < arr.length; i++){
+
+             if (uniq.indexOf(arr[i]) === -1){  //if arr[i] isn't in the uniq array
+ 
+                 uniq.push(arr[i])  //add arr[i] to uniq array 
+ 
+             }
+         }
+
+        var arrx = uniq.sort(function(a,b){return a-b}) //takes uniq array and sorts it from least to greatest. new arrx array created 
+        var seclowest = arrx[1];      //seclowest is second value in arrx array 
+        var rearrx = arrx.reverse() //reverses arrx array, now greatest to least 
+        var secmax = rearrx[1] //sec max is second value in reversed array 
+        return seclowest + " " + secmax; //returns second lowest and second largest values!
+    }
+
+//---------------------------------------------------------------------------------
+
 
 
 
