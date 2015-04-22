@@ -952,10 +952,65 @@ var SecondGreatLow = function(arr) {  //first attempt.. gets funky when passed o
         return seclowest + " " + secmax; //returns second lowest and second largest values!
     }
 
-//---------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------
 
 
+// have the function CaesarCipher(str,num) take the str parameter and perform a Caesar Cipher shift on it using the num parameter as the shifting number. 
+// A Caesar Cipher works by shifting each letter in the string N places down in the alphabet (in this case N will be num). 
+// Punctuation, spaces, and capitalization should remain intact. For example if the string is "Caesar Cipher" and num is 2 the output should be "Ecguct Ekrjgt". 
 
+var CaesarCipher = function(str,num) {
+
+
+}
+
+//-----------------------------------------------------------------------
+
+// You have an array of integers, and for each index you want to find the 
+// product of every integer except the integer at that index.
+
+var get_products_of_all_ints_except_at_index = function(arr) {
+
+    var newArr = [];
+
+    for (var i = 0; i < arr.length; i++) {
+        for (var j = 1; j < arr.length; j++) {  //first attempt interview cake question #1
+            newArr.push(arr[i] * arr[j]);
+        };
+    };
+    return newArr;
+}
+
+//-------------------------------------------------------------------------------
+
+var get_products_of_all_ints_except_at_index = function(arr) {  
+    debugger
+    var products_of_all_ints_except_at_index = [arr.length];  //  we make an array with the length of the input array to hold our products
+    
+
+    var product = 1;  
+    var i = 0; 
+
+    while (i < arr.length) {   //for each integer, we find the product of all the integers before it, storing the total product so far each time
+        products_of_all_ints_except_at_index[i] = product;
+        product *= arr[i];
+        i += 1;
+
+    }
+
+    product = 1;
+    i = arr.length - 1;
+
+    while (i >= 0) { // for each integer, we find the product of all the integers# after it. since each index in products already has the product of all the integers before it, now we're storing the total product of all other integers
+        products_of_all_ints_except_at_index[i] *= product;
+        product *= arr[i];
+        i -= 1;
+    }
+
+    return products_of_all_ints_except_at_index;
+}
+
+//---------------------------------------------------------------------------------------
 
 
 
