@@ -984,7 +984,7 @@ var get_products_of_all_ints_except_at_index = function(arr) {
 //-------------------------------------------------------------------------------
 
 var get_products_of_all_ints_except_at_index = function(arr) {  
-    debugger
+
     var products_of_all_ints_except_at_index = [arr.length];  //  we make an array with the length of the input array to hold our products
     
 
@@ -1011,6 +1011,40 @@ var get_products_of_all_ints_except_at_index = function(arr) {
 }
 
 //---------------------------------------------------------------------------------------
+
+// have the function LetterCountI(str) take the str parameter being passed and return the first word with the greatest number of repeated letters. 
+// For example: "Today, is the greatest day ever!" should return greatest because it has 2 e's (and 2 t's) and it comes before ever which also has 2 e's. 
+// If there are no words with repeating letters return -1. Words will be separated by spaces. 
+
+function LetterCountI(str){
+    debugger;
+    var arr = str.split(' ');  //var arr = argument string split into an array where each word is it's own string 
+    var highest = 0;
+    var highestRepeatedLetterWord = -1; 
+    
+    // get highest repeated words
+    for(var i = 0; i < arr.length; i++){  //loop through separated word array (arr)
+        strArr = arr[i].split(''); //strArr looks at each word in arr and splits into array of individual letters
+        
+        for(var x = 0; x < strArr.length; x++){ //loops through strArr 
+            letter = strArr[x]; // each individual letter in in strArr
+            regex = new RegExp(letter,"g"); 
+            if(regex.test(arr[i])) { 
+                ocurrences = arr[i].match(regex).length;
+                console.log(ocurrences);
+                if(ocurrences > highest && ocurrences > 1){
+                    highest = ocurrences;
+                    highestRepeatedLetterWord = arr[i];
+                }
+            }
+        }
+    }
+    
+    return highestRepeatedLetterWord;
+}
+
+//----------------------------------------------------------------------------------------------------
+
 
 
 
