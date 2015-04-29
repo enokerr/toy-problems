@@ -1045,6 +1045,64 @@ function LetterCountI(str){
 
 //----------------------------------------------------------------------------------------------------
 
+ // have the function PrimeMover(num) return the numth prime number. The range will be from 1 to 10^4. 
+ // For example: if num is 16 the output should be 53 as 53 is the 16th prime number. 
+
+ var primeMover  = function(num) {
+   
+   var output = true;
+
+   for(var i = 2; i <num; i++) {
+    if (num % 2 == 0) {
+        output = false;
+        break;
+    }
+   }
+
+    var counter = 0;
+
+    for (var i = 2; i < 10^4; i++) {
+        if (output == true) {
+            counter += 1;
+        }
+
+        if (counter === num) {
+            return i;
+            break;
+        }
+    }
+
+ }
+
+ //-----------------------------------------------------------------
+
+ function Prime(num) {
+    output = true  
+    for (var i=2 ; i<num ; i++) { //var i=2
+        if (num%i === 0)  {
+           output = false ; break
+        }
+    }
+    return output
+    }
+
+function PrimeMover(num) {
+    var count = 0
+    for (var i=2 ; i<10^4 ; i++)  { //var i=2
+        if (Prime(i) === true) {
+            count = count + 1 
+        }
+        if (count === num) {
+            return i
+            break
+        } 
+    }
+    }
+//--------------------------------------------------------------------------
+
+
+
+
 
 
 
