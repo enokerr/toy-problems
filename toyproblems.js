@@ -1100,7 +1100,28 @@ function PrimeMover(num) {
     }
 //--------------------------------------------------------------------------
 
+// have the function Division(num1,num2) take both parameters being passed and return the Greatest Common Factor. 
+// That is, return the greatest number that evenly goes into both numbers with no remainder. 
+// For example: 12 and 16 both are divisible by 1, 2, and 4 so the output should be 4.
 
+var Division = function(num1, num2) {
+
+}
+
+//first, let's figure out how to get the factors of a number
+
+var getFactors = function(num) {
+    var factors = [num];
+
+    for (var i = 0; i < num; i++) {
+        if (num % i == 0) {
+            factors.push(i);
+        }
+    }
+    factors = factors.sort(function(a,b){return a-b})
+    console.log(factors);
+}
+ //-----------------------------------------------------------------
 
 
 
