@@ -1,0 +1,19 @@
+{
+  "name": "toy-problems",
+  "version": "1.0.0",
+  "description": "",
+  "main": "algorithmPractice.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gyypo/toy-problems.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gyypo/toy-problems/issues"
+  },
+  "homepage": "https://github.com/gyypo/toy-problems"
+}

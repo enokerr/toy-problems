@@ -1104,9 +1104,6 @@ function PrimeMover(num) {
 // That is, return the greatest number that evenly goes into both numbers with no remainder. 
 // For example: 12 and 16 both are divisible by 1, 2, and 4 so the output should be 4.
 
-var Division = function(num1, num2) {
-
-}
 
 //first, let's figure out how to get the factors of a number
 
@@ -1122,6 +1119,41 @@ var getFactors = function(num) {
     console.log(factors);
 }
  //-----------------------------------------------------------------
+
+
+var Division = function(num1, num2) {
+    
+    var factorsNum1 = [num1];  //sets initial array with num1 included
+    var factorsNum2 = [num2];  //sets initial array with num2 included
+
+    for (var i = 0; i < num1; i++) {   //loop to create array of factors
+        if (num1 % i == 0) {
+            factorsNum1.push(i);
+        }
+    }
+    factorsNum1 = factorsNum1.sort(function(a,b){return a-b}); //sort factors from least to greatest
+
+     for (var i = 0; i < num2; i++) {
+        if (num2 % i == 0) {
+            factorsNum2.push(i);
+        }
+    }
+    factorsNum2 = factorsNum2.sort(function(a,b){return a-b});
+
+//at this point we have an array of the factors of each num argument, sorted from least to greatest
+
+var commonFactors = _.intersection(factorsNum1, factorsNum2); //sweet underscore js function that finds common values in any # of arrays !
+
+var greatestCommonFactor = commonFactors.splice(commonFactors.length - 1, 1); //assigns largest number from greatestCommonFactor array to greatestCommonFactor
+
+console.log(greatestCommonFactor);
+
+
+}
+
+//----------------------------------------------------------------------------------------------------------------
+
+
 
 
 
