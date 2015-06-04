@@ -1153,6 +1153,171 @@ console.log(greatestCommonFactor);
 
 //----------------------------------------------------------------------------------------------------------------
 
+//Write a loop that makes seven calls to console.log to output the following triangle:
+
+#
+##
+###
+####
+#####
+######
+#######
+
+
+var triangleMaker = function() {
+    
+    counter = '#';
+    
+    for (var i = 0; i < 7; i++) {
+        console.log(counter);
+        counter = counter + '#';
+    };
+}
+
+//----------------------------------------------------------------------------------------------------------
+
+/* Write a program that uses console.log to print all the numbers from 1 to 100, with two exceptions. For numbers divisible by 3,
+print "Fizz" instead of the number, and for numbers divisible by 5 (and not 3), print "Buzz" instead. When you have that working
+modify you program to print "FizzBuzz" for numbers that are divisible by both 5 and 3. */
+
+var fizzBuzz = function () {
+
+    for (var i = 1; i < 100; i++) {
+        
+        if (i % 3 == 0 && i % 5 == 0) {
+            console.log("FizBuzz");
+        }
+
+        else if (i % 3 == 0) {
+            console.log("Fizz");
+        }
+        
+        else if (i % 5 == 0) {
+            console.log("Buzz");
+        }
+
+        else {
+            console.log(i);
+        }
+    };
+}
+
+//-------------------------------------------------------------------------------
+
+
+var chessBoard = function(num) {
+
+    var size = num; 
+
+    for (var i = 0; i < size.length; i++) {
+        console.log('')
+    };
+}
+
+//---------------------------------------------------------------------
+
+var chessBoard = function() {
+var size = 8;
+
+var board = "";
+
+for (var y = 0; y < size; y++) {
+  for (var x = 0; x < size; x++) {
+    if ((x + y) % 2 == 0)
+      board += " ";
+    else
+      board += "#";
+  }
+  board += "\n";
+}
+
+console.log(board);
+
+};
+
+//-------------------------------------------   
+
+//write a function that takes an array as an argument and finds the first repeating value of that array. console.log that value
+
+var duplicateChecker = function(arr) {
+
+var sortedArr = arr.sort();
+var results = [];
+
+for (var i = 0; i < arr.length - 1; i++) {
+    if(sortedArr[i+1] == sortedArr[i]) {
+        results.push(sortedArr[i]);
+    }
+};
+results = results.shift();
+console.log(results);
+
+}
+
+//--------------------------------------------------------
+
+// Using the JavaScript language, have the function DashInsert(str) insert dashes ('-') between each two odd numbers in str. 
+// For example: if str is 454793 the output should be 4547-9-3. Don't count zero as an odd number. 
+
+//need to loop through str to find where there are consecutive odds. then, insert '-'
+
+var DashInsert = function(str) {
+    
+    newStr = str.split('');
+
+    for (var i = 0; i < newStr.length - 1; i++) {
+        if (newStr[i] % 2 !== 0) {
+            if(newStr[i + 1] % 2 !== 0))
+            newStr = newStr.splice(newStr[i], 0, '-');
+        }
+    }
+
+    newStr = newStr.join('');
+    return newStr;
+
+
+}
+
+//-------------------------------------------------------------------
+
+var DashInsert = function(str) {
+
+    newStr = str.split('');
+
+    for (var i = 0; i < newStr.length - 1; i++) {
+        if(newStr[i]%2 != 0){
+            if(newStr[i + 1]%2 != 0){
+                newStr.splice(i, 0, "-");
+            }
+        }
+    }
+
+    return newStr;
+}
+
+//----------------------------------
+
+//THIS ONE WORKS
+
+function DashInsert(str) { 
+    var newStr = str.split('');  //splits string into array
+
+    var len = newStr.length;             //sets len variable to length of new array
+    var final = [];
+    for (var i = 0; i < len; i++){
+        final.push(newStr[i]);        //pushes each value into final array (starts as empty)
+        if (newStr[i]%2 != 0){        //if the value at index i is odd
+            if (i+1 < len && newStr[i+1]%2 != 0) {    //and if the value at index i + 1 is within the length of the array and it is odd 
+                final.push("-")   //add the "-" to the final array 
+            }
+        }
+    }  
+  return final.join("");
+}
+
+//---------------------------------------------
+
+
 
 
 
